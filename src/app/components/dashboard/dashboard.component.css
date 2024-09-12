@@ -1,0 +1,97 @@
+/* Parent container */
+.parent {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa;
+}
+
+/* Left sidebar styling */
+.left {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #343a40; /* Dark sidebar background */
+    padding: 20px;
+    color: #fff; /* White text */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header styling */
+.left h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Horizontal line styling */
+.left hr {
+    border: 1px solid #495057;
+}
+
+/* Sidebar link styling */
+.left a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    /* padding: 10px; */
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Sidebar list styling */
+.left ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.left li {
+    margin-bottom: 10px;
+}
+
+/* Hover effect for links */
+.left a:hover {
+    background-color: #495057;
+}
+
+/* Button styling for logout */
+.left button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.left button:hover {
+    background-color: #c82333;
+}
+
+/* Right content section */
+.right {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #1a466d;
+    overflow-y: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .parent {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        box-shadow: none;
+        padding-bottom: 10px;
+    }
+
+    .right {
+        padding: 10px;
+    }
+}

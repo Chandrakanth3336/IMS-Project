@@ -22,6 +22,8 @@ background-color: rgb(150, 105, 140);
     align-items: center;
     height: 100vh; /* Full viewport height */
     background-color: #f5f5f5;
+    background-image: url(https://t3.ftcdn.net/jpg/07/33/64/04/240_F_733640495_CzK3HMdjSStUetHvjydilz0IfAXB4n0W.jpg);
+    background-size: cover;
 }
 
 /* Flex center helper class */
@@ -39,6 +41,9 @@ background-color: rgb(150, 105, 140);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    background-image: url(https://t3.ftcdn.net/jpg/07/83/09/00/240_F_783090006_tMh7yBrmn9N0vgJtn4tHkTUP2wlfIItj.jpg);
+    background-size: cover;
+   
 }
 
 /* Styling for form inputs */
@@ -49,13 +54,15 @@ background-color: rgb(150, 105, 140);
     border: 1px solid #ced4da;
     border-radius: 4px;
     margin-bottom: 15px;
+    
 }
 
 /* Error message styling */
 .err {
-    color: #dc3545;
-    font-size: 12px;
-    margin-top: -10px;
+    color:white;
+    font-size: 20px;
+    font-weight: 900;
+   
 }
 
 /* Button styling */
@@ -80,6 +87,7 @@ background-color: rgb(150, 105, 140);
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
+    color:whitesmoke;
 }
 
 /* Spacing for margin and padding */
