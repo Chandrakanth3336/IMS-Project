@@ -3,22 +3,23 @@
         <form [formGroup]="loginForm">
             <div class="mb-3 mt-3">
               <label for="email" class="form-label">Email:</label>
-              <input type="email" formControlname="email" class="form-control" id="email" placeholder="Enter email" name="email">
+              <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter email" name="email">
             <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
-                <p *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</p>
-                <p *ngIf="loginForm.get('email')?.errors?.['email']">Email Format is Missing</p>
+                <p class="err" *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</p>
+                <p class="err" *ngIf="loginForm.get('email')?.errors?.['email']">Email Format is Missing</p>
             </div>
             </div>
             <div class="mb-3">
               <label for="pwd" class="form-label">Password:</label>
-              <input type="password" formControlname="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+              <input type="password" formControlName="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
               <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-                <p *ngIf="loginForm.get('password')?.errors?.['required']">password Is Required</p>
-                <p *ngIf="loginForm.get('password')?.errors?.['password']">password Format is Missing</p>
+                <p class="err" *ngIf="loginForm.get('password')?.errors?.['required']">Password Is Required</p>
+                <p class="err" *ngIf="loginForm.get('password')?.errors?.['password']">Password Format is Missing</p>
             </div>
             </div>
+          
             <div class="flex-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
             </div>
           </form>   
     </div>
