@@ -1,4 +1,4 @@
-.parent{
+/* .parent{
     height: 100vh;
     width: 100vw;
     background-color: aquamarine;
@@ -13,4 +13,88 @@ background-color: rgb(150, 105, 140);
 .err{
     color: red;
     font-size: 15px;
+} */
+
+/* Parent container to center the form */
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f5f5f5;
+}
+
+/* Flex center helper class */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login container styling */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Styling for form inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Error message styling */
+.err {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Label styling */
+.form-label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Spacing for margin and padding */
+.mb-3 {
+    margin-bottom: 15px;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 20px;
+        width: 90%;
+    }
 }
