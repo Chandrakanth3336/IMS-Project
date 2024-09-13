@@ -8,10 +8,10 @@
 
             <label for>Gender:</label>
             <label for>Male</label>
-            <input type="radio" name="rrr" id formControlName="gender"
+            <input type="radio" name="gender" id formControlName="gender"
                 value="male">
             <label for>Female</label>
-            <input type="radio" name="rrr" id formControlName="gender"
+            <input type="radio" name="gender" id formControlName="gender"
                 value="female">
 
             <label for>Mobile:</label>
@@ -64,7 +64,7 @@
                         <label for="">Percentage</label>
                         <input type="text" name="" id="" formControlName="percentage">
                         <br>
-                        <button (click)="delete(i)">Delete</button>
+                        <button (click)="delete(i)">Delete {{i+1}}</button>
                     </div>
                 </div>
             </div>
@@ -87,9 +87,15 @@
                 <label for>OfferDate:</label>
                 <input type="text" name id formControlName="offerDate">
                 <br>
-
-
             </div>
+            <label for="">SourceType:</label>
+            <label for="">Direct:</label>
+            <input type="radio" name="" id="sourcetype" formControlName="sourcetype" value="direct">
+
+            <label for="">Referral:</label>
+            <input type="radio" name="sourcetype" formControlName="sourcetype" value="referral">
+
+
 
             <button (click)="create()">Create</button>
         </form>
