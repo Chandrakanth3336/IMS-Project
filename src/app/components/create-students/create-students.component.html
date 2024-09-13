@@ -47,6 +47,29 @@
                 <br>
 
             </div>
+
+            <button (click)="addeducation()">Add Education</button>
+
+            <div formArrayName="education">
+                <div *ngFor="let educations of educationFormArray.controls ; let i=index">
+                    <div formGroupName="{{i}}">
+                        <br>
+                        <h3>Education Details : {{i+1}}</h3>
+                        <label for="">Qualification</label>
+                        <input type="text" name="" id="" formControlName="qualification">
+
+                        <label for="">Year</label>
+                        <input type="text" name="" id="" formControlName="year">
+
+                        <label for="">Percentage</label>
+                        <input type="text" name="" id="" formControlName="percentage">
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <br>
+
             <button (click)="create()">Create</button>
         </form>
 
