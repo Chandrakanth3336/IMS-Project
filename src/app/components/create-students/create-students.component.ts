@@ -22,13 +22,16 @@ export class CreateStudentsComponent {
       pincode: new FormControl()
     }),
     education : new FormArray([]),
-    
+
     company :  new FormGroup({
       name: new FormControl(),
       location: new FormControl(),
       package: new FormControl(),
       offerDate: new FormControl()
     }),
+
+    sourcetype : new FormControl(),
+     
       
   });
    
