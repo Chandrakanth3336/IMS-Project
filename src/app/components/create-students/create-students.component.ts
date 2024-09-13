@@ -31,7 +31,8 @@ export class CreateStudentsComponent {
     }),
 
     sourcetype : new FormControl(),
-     
+    // sourceFrom: new FormControl(),
+    // referralName:new FormControl()     
       
   });
    
@@ -53,8 +54,24 @@ export class CreateStudentsComponent {
   this.educationFormArray.removeAt(i);
  }
 
+ constructor(){
+  this.studentForm.get('sourcetype')?.valueChanges.subscribe(
+    (value:any)=>{
+      if(value=='direct'){
+        this.studentForm.addControl('sourceFrom',new FormControl());
+        this.studentForm.removeControl('referralName');
+      }
+      else if(value=='referral'){
+        this.studentForm.addControl('referralName',new FormControl());
+        this.studentForm.removeControl('sourceFrom');
+      }
+    }
+  )
+ }
+
   create(){
     alert('Form Created Successfully');
     console.log(this.studentForm.value);
+    this.studentForm.reset();
   }
 }
