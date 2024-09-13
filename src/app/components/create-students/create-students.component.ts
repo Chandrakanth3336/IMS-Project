@@ -39,7 +39,9 @@ export class CreateStudentsComponent {
     )
   }
 
- 
+ delete(i:number){
+  this.educationFormArray.removeAt(i);
+ }
 
   create(){
     alert('Form Created Successfully');
