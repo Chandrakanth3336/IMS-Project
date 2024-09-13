@@ -24,7 +24,7 @@
             <input type="text" name id formControlName="batch">
 
             <div formGroupName="address">
-                <label for>Address:</label>
+                <label for><strong>Address:</strong></label>
                 <br>
                 <label for>City:</label>
                 <input type="text" name id formControlName="city">
@@ -69,6 +69,27 @@
                 </div>
             </div>
             <br>
+            <div formGroupName="company">
+                <label for><strong>Company:</strong></label>
+                <br>
+                <label for>Name:</label>
+                <input type="text" name id formControlName="name">
+                <br>
+
+                <label for>Location:</label>
+                <input type="text" name id formControlName="location">
+                <br>
+
+                <label for>Package:</label>
+                <input type="text" name id formControlName="package">
+                <br>
+
+                <label for>OfferDate:</label>
+                <input type="text" name id formControlName="offerDate">
+                <br>
+
+
+            </div>
 
             <button (click)="create()">Create</button>
         </form>
