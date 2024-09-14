@@ -11,7 +11,9 @@ export class AllStudentsComponent {
   public asdf:any='';
   public column:any='';
   public order:any='';
+  public search:any='';
 
+  
   public students:any=[];
   constructor(private _createStudentService:CreateStudentService){
     _createStudentService.getStudent().subscribe(
@@ -47,4 +49,14 @@ export class AllStudentsComponent {
       )
     }
 
+    filter(){
+      this._createStudentService.getFiltered(this.search).subscribe(
+        (data:any)=>{
+          this.students=data;
+        },
+        (error)=>{
+          alert('Internal Server Error');
+        }
+      )
+    }
 }

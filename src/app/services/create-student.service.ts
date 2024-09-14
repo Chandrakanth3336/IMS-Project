@@ -27,4 +27,8 @@ export class CreateStudentService {
   getSorting(column:any,order:any):Observable<any>{
     return this.httpClient.get(this.baseurl+"?sortBy="+column+"&order="+order)
   }
+
+  getFiltered(search:any):Observable<any>{
+    return this.httpClient.get(this.baseurl+"?filter="+search);
+  }
 }
