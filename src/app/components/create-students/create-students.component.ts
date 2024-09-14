@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CanComponentDeactivate } from '../../services/guards/can-deactivate.guard';
+import { CreateStudentService } from 'src/app/services/create-student.service';
 
 
 
@@ -69,7 +70,18 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
   this.educationFormArray.removeAt(i);
  }
 
- constructor(){
+ constructor(private _createStudentService:CreateStudentService){
+  this._createStudentService.createStudents(this.studentForm).subscribe(
+    (data:any)=>{
+      if(data){
+        alert('created');
+      }
+    },
+    (err)=>{
+      alert(err.error.error);
+    }
+  )
+  
   this.studentForm.get('sourcetype')?.valueChanges.subscribe(
     (value:any)=>{
       if(value=='direct'){
@@ -89,5 +101,6 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
     alert('Form Created Successfully');
     console.log(this.studentForm.value);
     this.studentForm.reset();
+    
   }
 }
