@@ -1,33 +1,48 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CanComponentDeactivate } from '../../services/guards/can-deactivate.guard';
+
+
 
 @Component({
   selector: 'app-create-students',
   templateUrl: './create-students.component.html',
   styleUrls: ['./create-students.component.css']
 })
-export class CreateStudentsComponent {
+export class CreateStudentsComponent implements CanComponentDeactivate{
+    isDirty:boolean=true;
+  canDeactivate(){
+    if(this.isDirty){
+      console.log('can deactivate is called', this.isDirty);
+      const confirmMessage = 'You have unsaved changes. Do you really want to leave';
+      return confirm(confirmMessage);
+    }
+    else{
+      return true;
+    }
+  }
+
 
   public studentForm:FormGroup = new FormGroup({
-    name: new FormControl(),
-    gender: new FormControl(),
-    mobile: new FormControl(),
-    email: new FormControl(),
-    batch:new FormControl(),
+    name: new FormControl('',[Validators.required]),
+    gender: new FormControl('',[Validators.required]),
+    mobile: new FormControl('',[Validators.required,Validators.min(1000000000),Validators.max(9999999999)]),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    batch:new FormControl('',[Validators.required]),
     address:new FormGroup({
-      city: new FormControl() ,
-      mandal: new FormControl(),
-      district: new FormControl(),
-      state: new FormControl(),
-      pincode: new FormControl()
+      city: new FormControl('',[Validators.required]) ,
+      mandal: new FormControl(''),
+      district: new FormControl('',[Validators.required]),
+      state: new FormControl('',[Validators.required]),
+      pincode: new FormControl('',[Validators.required,Validators.min(100000),Validators.max(999999)])
     }),
     education : new FormArray([]),
 
     company :  new FormGroup({
-      name: new FormControl(),
-      location: new FormControl(),
-      package: new FormControl(),
-      offerDate: new FormControl()
+      name: new FormControl(''),
+      location: new FormControl(''),
+      package: new FormControl(''),
+      offerDate: new FormControl('')
     }),
 
     sourcetype : new FormControl(),
@@ -43,9 +58,9 @@ export class CreateStudentsComponent {
   addeducation(){
     this.educationFormArray.push(
       new FormGroup({
-        qualification: new FormControl(),
-        year: new FormControl(), 
-        percentage: new FormControl()
+        qualification: new FormControl(''),
+        year: new FormControl(''), 
+        percentage: new FormControl('',[Validators.required,Validators.min(0),Validators.max(100)])
       })
     )
   }
@@ -67,6 +82,7 @@ export class CreateStudentsComponent {
       }
     }
   )
+  
  }
 
   create(){

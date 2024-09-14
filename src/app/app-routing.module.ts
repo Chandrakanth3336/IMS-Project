@@ -7,12 +7,13 @@ import { AuthGuard } from './services/guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { CreateStudentsComponent } from './components/create-students/create-students.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { CanDeactivateGuard } from './services/guards/can-deactivate.guard';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"dashboard",component:DashboardComponent, canActivate:[AuthGuard], children:[
     {path:"home",component:HomeComponent},
-    {path:"create-students",component:CreateStudentsComponent},
+    {path:"create-students",component:CreateStudentsComponent,canDeactivate:[CanDeactivateGuard]},
     {path:"all-students",component:AllStudentsComponent}
   ]},
   {path:"",component:LoginComponent},
