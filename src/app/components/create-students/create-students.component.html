@@ -68,7 +68,8 @@
                 <br>
                 <label for>City:</label>
                 <input type="text" formControlName="city">
-                <div *ngIf="studentForm.get('address')?.get('city')?.touched && studentForm.get('address')?.get('city')?.invalid">
+                <div
+                    *ngIf="studentForm.get('address')?.get('city')?.touched && studentForm.get('address')?.get('city')?.invalid">
                     <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('city')?.errors?.['required']">City
                         is Required</p>
@@ -80,7 +81,8 @@
 
                 <label for>district:</label>
                 <input type="text" formControlName="district">
-                <div *ngIf="studentForm.get('address')?.get('district')?.touched && studentForm.get('address')?.get('district')?.invalid">
+                <div
+                    *ngIf="studentForm.get('address')?.get('district')?.touched && studentForm.get('address')?.get('district')?.invalid">
                     <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('district')?.errors?.['required']">district
                         is Required</p>
@@ -90,7 +92,8 @@
                 <label for>State:</label>
                 <input type="text" formControlName="state">
                 <br>
-                <div *ngIf="studentForm.get('address')?.get('state')?.touched && studentForm.get('address')?.get('state')?.invalid">
+                <div
+                    *ngIf="studentForm.get('address')?.get('state')?.touched && studentForm.get('address')?.get('state')?.invalid">
                     <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('state')?.errors?.['required']">state
                         is Required</p>
@@ -99,14 +102,15 @@
                 <label for>Pincode:</label>
                 <input type="text" formControlName="pincode">
                 <br>
-                <div *ngIf="studentForm.get('address')?.get('pincode')?.touched && studentForm.get('address')?.get('pincode')?.invalid">
+                <div
+                    *ngIf="studentForm.get('address')?.get('pincode')?.touched && studentForm.get('address')?.get('pincode')?.invalid">
                     <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['required']">pincode
                         is Required</p>
-                        <p class="err" style="color: red;"
+                    <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['min']">pincode
-                        minimum 6 digits Required</p>    
-                        <p class="err" style="color: red;"
+                        minimum 6 digits Required</p>
+                    <p class="err" style="color: red;"
                         *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['max']">pincode
                         Maximum 6 Digits Required</p>
                 </div>
@@ -131,16 +135,17 @@
                         <label for>Percentage</label>
                         <input type="text" name id formControlName="percentage">
                         <br>
-                        <div *ngIf="educationFormArray.at(i)?.get('percentage')?.touched && educationFormArray.at(i)?.get('percentage')?.invalid">
+                        <div
+                            *ngIf="educationFormArray.at(i)?.get('percentage')?.touched && educationFormArray.at(i)?.get('percentage')?.invalid">
                             <p class="err" style="color: red;"
                                 *ngIf="educationFormArray.at(i)?.get('percentage')?.errors?.['required']">Percentage
                                 is Required</p>
-                                <p class="err" style="color: red;"
+                            <p class="err" style="color: red;"
                                 *ngIf="educationFormArray.at(i)?.get('percentage')?.errors?.['min']">Percentage
-                                minimum 1  is Required</p>    
-                                <p class="err" style="color: red;"
+                                minimum 1 is Required</p>
+                            <p class="err" style="color: red;"
                                 *ngIf="educationFormArray.at(i)?.get('percentage')?.errors?.['max']">Percentage
-                                Maximum 100  Required</p>
+                                Maximum 100 Required</p>
                         </div>
                         <button (click)="delete(i)">Delete {{i+1}}</button>
                     </div>
@@ -170,29 +175,29 @@
             <label for="sourcetype">Direct:</label>
             <input type="radio" name id="sourcetype"
                 formControlName="sourcetype" value="direct">
+                <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
+                    <label for>SourceFrom:</label>
+                    <br>
+                    <input type="radio" name="sourceFrom" id="rcr"
+                        formControlName="sourceFrom" value="SocialMedia">
+                    <label for="rcr">SocialMedia</label>
+                    <br>
+                    <input type="radio" name="sourceFrom" id="rar"
+                        formControlName="sourceFrom" value="Office">
+                    <label for="rar">Office</label>
+                </div>
 
             <label for="type">Referral:</label>
             <input type="radio" name="sourcetype" id="type"
                 formControlName="sourcetype" value="referral">
-
-            <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
-                <label for>SourceFrom:</label>
-                <br>
-                <input type="radio" name="sourceFrom" id="rcr"
-                    formControlName="sourceFrom" value="SocialMedia">
-                <label for="rcr">SocialMedia</label>
-                <br>
-                <input type="radio" name="sourceFrom" id="rar"
-                    formControlName="sourceFrom" value="Office">
-                <label for="rar">Office</label>
-            </div>
 
             <div *ngIf="studentForm.get('sourcetype')?.value=='referral'">
                 <label for>ReferralName:</label>
                 <input type="text" formControlName="referralName">
             </div>
 
-            <button class="create" type="submit" (click)="create()">Create</button>
+            <button class="create" type="submit"
+                (click)="create()">Create</button>
         </form>
 
     </div>
