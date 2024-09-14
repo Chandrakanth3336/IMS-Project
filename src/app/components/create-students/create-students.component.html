@@ -175,17 +175,17 @@
             <label for="sourcetype">Direct:</label>
             <input type="radio" name id="sourcetype"
                 formControlName="sourcetype" value="direct">
-                <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
-                    <label for>SourceFrom:</label>
-                    <br>
-                    <input type="radio" name="sourceFrom" id="rcr"
-                        formControlName="sourceFrom" value="SocialMedia">
-                    <label for="rcr">SocialMedia</label>
-                    <br>
-                    <input type="radio" name="sourceFrom" id="rar"
-                        formControlName="sourceFrom" value="Office">
-                    <label for="rar">Office</label>
-                </div>
+            <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
+                <label for>SourceFrom:</label>
+                <br>
+                <input type="radio" name="sourceFrom" id="rcr"
+                    formControlName="sourceFrom" value="SocialMedia">
+                <label for="rcr">SocialMedia</label>
+                <br>
+                <input type="radio" name="sourceFrom" id="rar"
+                    formControlName="sourceFrom" value="Office">
+                <label for="rar">Office</label>
+            </div>
 
             <label for="type">Referral:</label>
             <input type="radio" name="sourcetype" id="type"
