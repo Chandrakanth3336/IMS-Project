@@ -7,15 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class CreateStudentService {
 
-  
+  public baseurl:string='https://62b9299dff109cd1dc8ca34f.mockapi.io/students';
+
   constructor(private httpClient:HttpClient) { }
 
   createStudents(payload:any):Observable<any>{
     // console.log('2');
-    return this.httpClient.post("https://62b9299dff109cd1dc8ca34f.mockapi.io/students",payload);
+    return this.httpClient.post(this.baseurl,payload);
   }
 
   getStudent():Observable<any>{
-    return this.httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students");
+    return this.httpClient.get(this.baseurl)
+  }
+
+  getPaginaated(zxcv:any,asdf:any):Observable<any>{
+    return this.httpClient.get(this.baseurl+"?limit="+zxcv + "&page="+asdf);
   }
 }

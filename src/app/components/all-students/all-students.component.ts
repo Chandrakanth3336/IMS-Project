@@ -7,6 +7,8 @@ import { CreateStudentService } from 'src/app/services/create-student.service';
   styleUrls: ['./all-students.component.css']
 })
 export class AllStudentsComponent {
+  public zxcv:any='';
+  public asdf:any='';
 
   public students:any=[];
   constructor(private _createStudentService:CreateStudentService){
@@ -14,10 +16,23 @@ export class AllStudentsComponent {
       (data:any)=>{
         console.log(data);
         this.students=data;
+      },
+      (error)=>{
+        alert('Internal Server Error');
       }
     )
   }
 
+  limit(){
+    this._createStudentService.getPaginaated(this.asdf,this.zxcv).subscribe(
+      (data:any)=>{
+        this.students=data;
+      },
+      (error)=>{
+        alert('Internal Server Error');
+      }
+    )
+  }
 
 
 }
