@@ -28,6 +28,10 @@
 
 <button (click)="sort()">Sort</button>
 
+<br>
+<br>
+<input type="text" [(ngModel)]="search" (keyup)="filter()">
+
 <table border="1">
     <thead>
         <tr>

@@ -120,20 +120,19 @@
             <button (click)="addeducation()">Add Education</button>
 
             <div formArrayName="education">
-                <div
-                    *ngFor="let educations of educationFormArray.controls ; let i=index">
+                <div *ngFor="let educations of educationFormArray.controls ; let i=index">
                     <div formGroupName="{{i}}">
                         <br>
                         <h3>Education Details : {{i+1}}</h3>
                         <label for>Qualification</label>
-                        <input type="text" name id
+                        <input type="text" 
                             formControlName="qualification">
 
                         <label for>Year</label>
-                        <input type="text" name id formControlName="year">
+                        <input type="text"  formControlName="year">
 
                         <label for>Percentage</label>
-                        <input type="text" name id formControlName="percentage">
+                        <input type="text"  formControlName="percentage">
                         <br>
                         <div
                             *ngIf="educationFormArray.at(i)?.get('percentage')?.touched && educationFormArray.at(i)?.get('percentage')?.invalid">
