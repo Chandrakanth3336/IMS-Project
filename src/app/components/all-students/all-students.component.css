@@ -1,0 +1,53 @@
+/* Table Container Styling */
+.table-container {
+    overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+    margin: 20px 0; /* Adds space above and below the table */
+}
+
+/* Table Styling */
+table {
+    width: 100%; /* Ensures the table takes up the full width of its container */
+    border-collapse: collapse; /* Merges borders between cells for a clean look */
+    font-family: Arial, sans-serif; /* Sets a clean, modern font */
+}
+
+/* Table Header Styling */
+th {
+    background-color: #4CAF50; /* Dark green background for the header */
+    color: white; /* White text color for contrast */
+    padding: 12px; /* Adds padding inside header cells */
+    text-align: left; /* Aligns text to the left inside header cells */
+}
+
+/* Table Cell Styling */
+td {
+    padding: 10px; /* Adds padding inside data cells */
+    border: 1px solid #ddd; /* Light grey border around data cells */
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light grey background for even rows */
+}
+
+/* Hover Effect for Rows */
+tbody tr:hover {
+    background-color: #ddd; /* Slightly darker grey background on hover */
+}
+
+/* No Data Placeholder */
+td:empty::after {
+    content: 'N/A'; /* Displays 'N/A' if the cell is empty */
+    color: #999; /* Grey color for the placeholder text */
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px; /* Reduces font size on smaller screens */
+    }
+
+    th, td {
+        padding: 8px; /* Reduces padding on smaller screens */
+    }
+}

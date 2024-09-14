@@ -71,17 +71,6 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
  }
 
  constructor(private _createStudentService:CreateStudentService){
-  this._createStudentService.createStudents(this.studentForm).subscribe(
-    (data:any)=>{
-      if(data){
-        alert('created');
-      }
-    },
-    (err)=>{
-      alert(err.error.error);
-    }
-  )
-  
   this.studentForm.get('sourcetype')?.valueChanges.subscribe(
     (value:any)=>{
       if(value=='direct'){
@@ -94,11 +83,23 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
       }
     }
   )
-  
  }
 
   create(){
-    alert('Form Created Successfully');
+    console.log('1');
+    this._createStudentService.createStudents(this.studentForm.value).subscribe(
+      (data:any)=>{
+        console.log('3');
+        if(data){
+          alert('created');
+        }
+      },
+      (err)=>{
+        console.log('4');
+        alert(err.error.error);
+      }
+    )
+     alert('Form Created Successfully');
     console.log(this.studentForm.value);
     this.studentForm.reset();
     

@@ -1,1 +1,30 @@
-<p>all-students works!</p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Batch</th>
+            <th>District </th>
+            <th>State</th>
+            <th>Company Name</th>
+            <th>Package</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students;let i=index">
+            <td>{{student.id || 'N/A'}}</td>
+            <td>{{student.name || 'N/A'}}</td>
+            <td>{{student.gender || 'N/A'}}</td>
+            <td>{{student.mobile || 'N/A'}}</td>
+            <td>{{student.batch || 'N/A'}}</td>
+            <td>{{student.address?.district || 'N/A'}}</td>
+            <td>{{student.address?.state || 'N/A'}}</td>
+            <td>{{student.company?.name || 'N/A'}}</td>
+            <td>{{student.company?.package || 'N/A'}}</td>
+
+        </tr>
+    </tbody>
+</table>
