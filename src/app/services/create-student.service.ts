@@ -23,4 +23,8 @@ export class CreateStudentService {
   getPaginaated(zxcv:any,asdf:any):Observable<any>{
     return this.httpClient.get(this.baseurl+"?limit="+zxcv + "&page="+asdf);
   }
+
+  getSorting(column:any,order:any):Observable<any>{
+    return this.httpClient.get(this.baseurl+"?sortBy="+column+"&order="+order)
+  }
 }
