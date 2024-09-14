@@ -9,6 +9,8 @@ import { CreateStudentService } from 'src/app/services/create-student.service';
 export class AllStudentsComponent {
   public zxcv:any='';
   public asdf:any='';
+  public column:any='';
+  public order:any='';
 
   public students:any=[];
   constructor(private _createStudentService:CreateStudentService){
@@ -34,5 +36,15 @@ export class AllStudentsComponent {
     )
   }
 
+    sort(){
+      this._createStudentService.getSorting(this.column,this.order).subscribe(
+        (data:any)=>{
+          this.students=data;
+        },
+        (error)=>{
+          alert('Internal Server Error');
+        }
+      )
+    }
 
 }

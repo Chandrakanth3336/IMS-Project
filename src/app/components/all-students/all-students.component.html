@@ -5,7 +5,29 @@
 <label for="">Page</label>
 <input type="number" [(ngModel)]="zxcv">
 
+
 <button (click)="limit()">Limit</button>
+<br>
+<br>
+<label for="">Column</label>
+<select name="" id="" [(ngModel)]="column">
+<option value="name">name</option>
+<option value="gender">gender</option>
+<option value="mobile">mobile</option>
+<option value="">batch</option>
+<option value="district">district</option>
+<option value="state">state</option>
+
+</select>
+
+<label for="">Order</label>
+<select name="" id="" [(ngModel)]="order">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descnding</option>
+</select>
+
+<button (click)="sort()">Sort</button>
+
 <table border="1">
     <thead>
         <tr>
