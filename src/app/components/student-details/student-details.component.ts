@@ -10,15 +10,19 @@ import { CreateStudentService } from 'src/app/services/create-student.service';
 export class StudentDetailsComponent {
 
     public studentdetails:any=[];
-    public id:any='';
-  constructor(private createStudentService:CreateStudentService){
-  
-        createStudentService.getStudents(this.id).subscribe(
+  constructor(private createStudentService:CreateStudentService, private activatedRoute:ActivatedRoute){
+    activatedRoute.params.subscribe(
+      (data:any)=>{
+        console.log(data.id);
+
+        createStudentService.getStudents(data.id).subscribe(
           (data:any)=>{
             this.studentdetails=data;
           }
         )
-     
+      }
+    )
+
     
   }
 }
