@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CreateStudentService } from 'src/app/services/create-student.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AllStudentsComponent {
 
   
   public students:any=[];
-  constructor(private _createStudentService:CreateStudentService){
+  constructor(private _createStudentService:CreateStudentService, private router:Router){
     _createStudentService.getStudent().subscribe(
       (data:any)=>{
         console.log(data);
@@ -58,5 +59,9 @@ export class AllStudentsComponent {
           alert('Internal Server Error');
         }
       )
+    }
+
+    view(id:string){
+      this.router.navigateByUrl('/dashboard/student-details/'+id);
     }
 }

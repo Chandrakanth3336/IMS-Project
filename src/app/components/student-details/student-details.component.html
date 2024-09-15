@@ -1,0 +1,42 @@
+<div class="parent">
+    <div class="child">
+        <div class="student-Information">
+            <h2><strong>Personal Information</strong></h2>
+            <h3>Name: {{studentdetails.name}}</h3>
+            <h3>Gender: {{studentdetails.gender}}</h3>
+            <h3>Phone Number: {{studentdetails.mobile}}</h3>
+            <h3>Email: {{studentdetails.email}}</h3>
+            <h3>Batch: {{studentdetails.batch}}</h3>
+        </div>
+        <div class="address">
+            <h2><strong>Address</strong></h2>
+            <h3>City: {{studentdetails.address.city}}</h3>
+            <h3>Mandal: {{studentdetails.address.mandal}}</h3>
+            <h3>district: {{studentdetails.address.district}}</h3>
+            <h3>State: {{studentdetails.address.state}}</h3>
+            <h3>Pincode: {{studentdetails.address.pincode}}</h3>
+        </div>
+        <div class="education" *ngIf="studentdetails.education.length > 0">
+            <div *ngFor="let education of studentdetails.education;let i=index">
+                <h2><strong>Education: {{i+1}}</strong></h2>
+                <h3>Qualification: {{education.qualification}}</h3>
+                <h3>Year: {{education.year}}</h3>
+                <h3>Percentage: {{education.percentage}}</h3>
+            </div>
+        </div>
+        <div class="company">
+            <h2><strong>Company Details</strong></h2>
+            <h3>Name: {{studentdetails.company.name}}</h3>
+            <h3>Location: {{studentdetails.company.location}}</h3>
+            <h3>Package: {{studentdetails.company.package}}</h3>
+            <h3>OfferDate: {{studentdetails.company.offerDate}}</h3>
+        </div>
+        <div class="sourcetype">
+            <h2><strong>SourceType</strong></h2>
+            <h3>SourceType: {{studentdetails.sourceType}}</h3>
+            <h3 *ngIf="studentdetails.sourceType ==='direct'">SourceFrom: {{studentdetails.sourceFrom}}</h3>
+            <h3  *ngIf="studentdetails.sourceType ==='referral'">ReferralName: {{studentdetails.referralName}}</h3>
+        </div>
+    </div>
+</div>
+
