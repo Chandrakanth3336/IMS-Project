@@ -21,7 +21,7 @@
                 <h2><strong>Education: {{i+1}}</strong></h2>
                 <h3>Qualification: {{education.qualification}}</h3>
                 <h3>Year: {{education.year}}</h3>
-                <h3>Percentage: {{education.percentage}}</h3>
+                <h3 [style.color]="education.percentage > 60 ? 'green' : 'red'">Percentage: {{education.percentage | percentage}}</h3>
             </div>
         </div>
         <div class="company">
