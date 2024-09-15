@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CreateStudentsComponent } from './components/create-students/create-students.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
+import { PercentagePipe } from './services/pipes/percentage.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { StudentDetailsComponent } from './components/student-details/student-de
     HomeComponent,
     CreateStudentsComponent,
     AllStudentsComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    PercentagePipe
   ],
   imports: [
     BrowserModule,
