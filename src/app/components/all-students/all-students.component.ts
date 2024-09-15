@@ -64,4 +64,15 @@ export class AllStudentsComponent {
     view(id:string){
       this.router.navigateByUrl('/dashboard/student-details/'+id);
     }
+    delete(id:string){
+      this._createStudentService.getDelete(id).subscribe(
+        (data:any)=>{
+          alert("Deleted Successfully!!!");
+          location.reload();
+        },
+        (error:any)=>{
+          alert("Deletion Failed")
+        }
+      )
+    }
 }

@@ -35,4 +35,8 @@ export class CreateStudentService {
   getFiltered(search:any):Observable<any>{
     return this.httpClient.get(this.baseurl+"?filter="+search);
   }
+
+  getDelete(id:string):Observable<any>{
+    return this.httpClient.delete(this.baseurl+'/'+id);
+  }
 }
