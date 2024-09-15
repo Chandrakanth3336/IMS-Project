@@ -44,6 +44,7 @@
             <th>State</th>
             <th>Company Name</th>
             <th>Package</th>
+            <th>Operations</th>
         </tr>
     </thead>
     <tbody>
@@ -57,7 +58,13 @@
             <td>{{student.address?.state || 'N/A'}}</td>
             <td>{{student.company?.name || 'N/A'}}</td>
             <td>{{student.company?.package || 'N/A'}}</td>
-
+            <td>
+                <button (click)="view(student.id)">View</button>
+                <br>
+                <!-- <button (click)="delete(student.id)">Delete</button>
+                 
+                <button (click)="edit(student.id)">Edit</button> -->
+            </td>
         </tr>
     </tbody>
 </table>

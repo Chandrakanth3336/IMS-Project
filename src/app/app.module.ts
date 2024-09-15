@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { CreateStudentsComponent } from './components/create-students/create-students.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { StudentDetailsComponent } from './components/student-details/student-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AllStudentsComponent } from './components/all-students/all-students.com
     PagenotfoundComponent,
     HomeComponent,
     CreateStudentsComponent,
-    AllStudentsComponent
+    AllStudentsComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@ export class CreateStudentService {
   getStudent():Observable<any>{
     return this.httpClient.get(this.baseurl)
   }
+  
+  getStudents(id:string):Observable<any>{
+    return this.httpClient.get(this.baseurl+"/"+id)
+  }
 
   getPaginaated(zxcv:any,asdf:any):Observable<any>{
     return this.httpClient.get(this.baseurl+"?limit="+zxcv + "&page="+asdf);
