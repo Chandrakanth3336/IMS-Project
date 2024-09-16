@@ -9,7 +9,7 @@ import { CreateStudentService } from 'src/app/services/create-student.service';
 })
 export class StudentDetailsComponent {
 
-    public studentdetails:any=[];
+    public studentdetails:any={};
   constructor(private createStudentService:CreateStudentService, private activatedRoute:ActivatedRoute){
     activatedRoute.params.subscribe(
       (data:any)=>{

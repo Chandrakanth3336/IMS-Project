@@ -17,7 +17,7 @@ const routes: Routes = [
     {path:"create-students",component:CreateStudentsComponent,canDeactivate:[CanDeactivateGuard]},
     {path:"all-students",component:AllStudentsComponent},
     {path:'student-details/:id',component:StudentDetailsComponent},
-    
+    {path:'edit-students/:id',component:CreateStudentsComponent},
   ]},
   {path:"",component:LoginComponent},
   {path:"**",component:PagenotfoundComponent}

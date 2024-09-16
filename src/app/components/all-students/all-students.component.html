@@ -1,69 +1,83 @@
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label for="limit" class="form-label">Limit</label>
+            <input type="number" id="limit" [(ngModel)]="asdf" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label for="page" class="form-label">Page</label>
+            <input type="number" id="page" [(ngModel)]="zxcv" class="form-control">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button (click)="limit()" class="btn btn-primary w-100">Apply</button>
+        </div>
+        <div class="col-md-3">
+            <label for="column" class="form-label">Column</label>
+            <select id="column" [(ngModel)]="column" class="form-select">
+                <option value="name">Name</option>
+                <option value="gender">Gender</option>
+                <option value="mobile">Mobile</option>
+                <option value="batch">Batch</option>
+                <option value="district">District</option>
+                <option value="state">State</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label for="order" class="form-label">Order</label>
+            <select id="order" [(ngModel)]="order" class="form-select">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button (click)="sort()" class="btn btn-secondary w-100">Sort</button>
+        </div>
+        <div class="col-md-4 mt-3">
+            <label for="search" class="form-label">Search</label>
+            <input type="text" id="search" [(ngModel)]="search" (keyup)="filter()" class="form-control" placeholder="Search...">
+        </div>
+    </div>
 
-<label for="">Limit</label>
-<input type="number" [(ngModel)]="asdf">
-
-<label for="">Page</label>
-<input type="number" [(ngModel)]="zxcv">
-
-
-<button (click)="limit()">Limit</button>
-<br>
-<br>
-<label for="">Column</label>
-<select name="" id="" [(ngModel)]="column">
-<option value="name">name</option>
-<option value="gender">gender</option>
-<option value="mobile">mobile</option>
-<option value="">batch</option>
-<option value="district">district</option>
-<option value="state">state</option>
-
-</select>
-
-<label for="">Order</label>
-<select name="" id="" [(ngModel)]="order">
-    <option value="asc">Ascending</option>
-    <option value="desc">Descnding</option>
-</select>
-
-<button (click)="sort()">Sort</button>
-
-<br>
-<br>
-<input type="text" [(ngModel)]="search" (keyup)="filter()">
-
-<table border="1">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Phone</th>
-            <th>Batch</th>
-            <th>District </th>
-            <th>State</th>
-            <th>Company Name</th>
-            <th>Package</th>
-            <th>Operations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let student of students;let i=index">
-            <td>{{student.id || 'N/A'}}</td>
-            <td>{{student.name || 'N/A'}}</td>
-            <td>{{student.gender || 'N/A'}}</td>
-            <td>{{student.mobile || 'N/A'}}</td>
-            <td>{{student.batch || 'N/A'}}</td>
-            <td>{{student.address?.district || 'N/A'}}</td>
-            <td>{{student.address?.state || 'N/A'}}</td>
-            <td>{{student.company?.name || 'N/A'}}</td>
-            <td>{{student.company?.package || 'N/A'}}</td>
-            <td>
-                <button (click)="view(student.id)">View</button>
-                <br>
-                <br>
-                 <button (click)="delete(student.id)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Batch</th>
+                    <th>District</th>
+                    <th>State</th>
+                    <th>Company Name</th>
+                    <th>Package</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students; let i = index">
+                    <td>{{ student.id || 'N/A' }}</td>
+                    <td>{{ student.name || 'N/A' }}</td>
+                    <td>{{ student.gender || 'N/A' }}</td>
+                    <td>{{ student.mobile || 'N/A' }}</td>
+                    <td>{{ student.batch || 'N/A' }}</td>
+                    <td>{{ student.address?.district || 'N/A' }}</td>
+                    <td>{{ student.address?.state || 'N/A' }}</td>
+                    <td>{{ student.company?.name || 'N/A' }}</td>
+                    <td>{{ student.company?.package || 'N/A' }}</td>
+                    <td class="actions">
+                        <button (click)="view(student.id)" class="btn btn-sm btn-success">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <button (click)="delete(student.id)" class="btn btn-sm btn-danger mt-2">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                        <button (click)="edit(student.id)" class="btn btn-sm btn-warning mt-2">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

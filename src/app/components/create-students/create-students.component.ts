@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CanComponentDeactivate } from '../../services/guards/can-deactivate.guard';
 import { CreateStudentService } from 'src/app/services/create-student.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -11,6 +12,9 @@ import { CreateStudentService } from 'src/app/services/create-student.service';
   styleUrls: ['./create-students.component.css']
 })
 export class CreateStudentsComponent implements CanComponentDeactivate{
+
+ 
+
     isDirty:boolean=true;
   canDeactivate(){
     if(this.isDirty){
@@ -23,6 +27,7 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
     }
   }
 
+  public id:string='';
 
   public studentForm:FormGroup = new FormGroup({
     name: new FormControl('',[Validators.required]),
@@ -70,7 +75,27 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
   this.educationFormArray.removeAt(i);
  }
 
- constructor(private _createStudentService:CreateStudentService){
+ constructor(private _createStudentService:CreateStudentService ,private activatedRoute:ActivatedRoute){
+
+    activatedRoute.params.subscribe(
+      (data:any)=>{
+        console.log(data.id);
+        this.id=data.id
+
+        _createStudentService.getStudents(data.id).subscribe(
+          (data:any)=>{
+            console.log(data);
+            for(let edu of data.education){
+              this.addeducation();
+            }
+            // console.log(data.sourcetype);
+            this.studentForm.patchValue(data);
+          }
+        )
+      }
+    )
+
+
   this.studentForm.get('sourcetype')?.valueChanges.subscribe(
     (value:any)=>{
       if(value=='direct'){
@@ -86,22 +111,36 @@ export class CreateStudentsComponent implements CanComponentDeactivate{
  }
 
   create(){
-    console.log('1');
-    this._createStudentService.createStudents(this.studentForm.value).subscribe(
-      (data:any)=>{
-        console.log('3');
-        if(data){
-          alert('created');
+    if(this.id){
+      this._createStudentService.getUpdate(this.studentForm.value,this.id).subscribe(
+        (data:any)=>{
+          // console.log(data);
+          alert("Updated Successfully");
+          this.studentForm.reset();
+        },
+        (error:any)=>{
+          alert('updation Failed')
         }
-      },
-      (err)=>{
-        console.log('4');
-        alert(err.error.error);
-      }
-    )
-     alert('Form Created Successfully');
-    console.log(this.studentForm.value);
-    this.studentForm.reset();
-    
+      )
+    }
+    else{
+      this._createStudentService.createStudents(this.studentForm.value).subscribe(
+        (data:any)=>{
+          // console.log('3');
+          if(data){
+            alert('created');
+            this.studentForm.reset();
+          }
+        },
+        (err)=>{
+          // console.log('4');
+          alert(err.error.error);
+        }
+      )
+      
+      
+    }
+     
   }
+
 }

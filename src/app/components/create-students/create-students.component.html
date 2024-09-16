@@ -1,7 +1,7 @@
 <div class="parent">
     <div class="child">
         <form [formGroup]="studentForm" novalidate>
-            <h2>Create Student Form</h2>
+            <h2>{{id ? 'Edit Student Form':'Create Student Form'}}</h2>
 
             <label for>Name:</label>
             <input type="text" formControlName="name">
@@ -172,10 +172,9 @@
             </div>
             <label for>SourceType:</label>
             <label for="sourcetype">Direct:</label>
-            <input type="radio" name id="sourcetype"
-                formControlName="sourcetype" value="direct">
+            <input type="radio"  id="sourcetype"  formControlName="sourcetype" value="direct">
             <div *ngIf="studentForm.get('sourcetype')?.value=='direct'">
-                <label for>SourceFrom:</label>
+                <label for="">SourceFrom:</label>
                 <br>
                 <input type="radio" name="sourceFrom" id="rcr"
                     formControlName="sourceFrom" value="SocialMedia">
@@ -192,11 +191,10 @@
 
             <div *ngIf="studentForm.get('sourcetype')?.value=='referral'">
                 <label for>ReferralName:</label>
-                <input type="text" formControlName="referralName">
+                <input type="text" formControlName="referralName" value="referral">
             </div>
 
-            <button class="create" type="submit"
-                (click)="create()">Create</button>
+            <button class="create" type="submit" (click)="create()">{{id ? 'Update' : 'Create'}}</button>  
         </form>
 
     </div>

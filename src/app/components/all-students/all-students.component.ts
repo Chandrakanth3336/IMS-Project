@@ -75,4 +75,10 @@ export class AllStudentsComponent {
         }
       )
     }
+
+    edit(id:string){
+      this.router.navigateByUrl('/dashboard/edit-students/'+id);
+    }
+
+
 }

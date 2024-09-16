@@ -36,6 +36,10 @@ export class CreateStudentService {
     return this.httpClient.get(this.baseurl+"?filter="+search);
   }
 
+  getUpdate(data:any,id:any):Observable<any>{
+    return this.httpClient.put(this.baseurl+'/'+id,data);
+  }
+
   getDelete(id:string):Observable<any>{
     return this.httpClient.delete(this.baseurl+'/'+id);
   }
